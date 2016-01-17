@@ -12,7 +12,15 @@ var config = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['', '.js'],
+        alias: {
+            containers: path.join(__dirname, 'src', 'containers'),
+            components: path.join(__dirname, 'src', 'components'),
+            actions: path.join(__dirname, 'src', 'actions'),
+            reducers: path.join(__dirname, 'src', 'reducers'),
+            middleware: path.join(__dirname, 'src', 'middleware'),
+            services: path.join(__dirname, 'src', 'services')
+        }
     },
 
     module: {
