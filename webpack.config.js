@@ -2,7 +2,11 @@ var path = require('path');
 
 var config = {
     devtool: 'eval-source-map',
-    entry: __dirname + '/src/index.js',
+    entry: [
+        'webpack-dev-server/client?http://0.0.0.0:8080',
+        'webpack/hot/only-dev-server',
+        './src/index.js'
+    ],
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'bundle.js'
