@@ -1,0 +1,79 @@
+body {
+    margin: 20px;
+}
+
+ul.tournaments,
+ul.matches {
+    padding: 0;
+}
+ul.tournaments li,
+ul.matches li {
+    display: block;
+    border: 1px solid #C9C9C9;
+    margin-top: 15px;
+    text-align: center;
+    padding: 15px;
+    font-size: 17px;
+    border-radius: 5px;
+}
+ul.tournaments li:hover,
+ul.matches li:hover {
+    background-color: #F5F8FB;
+    border-color: #CBDDEF;
+    cursor: pointer;
+}
+
+.tournament {
+    position: relative;
+    overflow: hidden;
+}
+.tournament h2 {
+    display: block;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.tournament .back-btn,
+.tournament .fwd-btn {
+    position: absolute;
+    top: 10px;
+}
+.tournament .back-btn {
+    left: 0;
+}
+.tournament .fwd-btn {
+    right: 0;
+}
+
+ul.matches li .player {
+    display: inline-block;
+    font-weight: bold;
+}
+ul.matches li .player.winner {
+    color: #4BA407;
+}
+ul.matches li .player.loser {
+    color: #DC2F2F;
+}
+
+ul.matches li .player .name,
+ul.matches li .separator .name, {
+    margin-bottom: 5px;
+}
+
+ul.matches li .separator {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+ul.matches li.not-played .player .score,
+ul.matches li.not-played .player .name.not-assigned {
+    font-weight: normal;
+}
+ul.matches li.played {
+    /*background-color: #E9F5E4;
+    border-color: #d6e9c6;*/
+}
+ul.matches li.not-played {
+    /*background-color: #ECF3FB;
+    border-color: #bce8f1;*/
+}

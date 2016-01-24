@@ -1,0 +1,46 @@
+a {
+    color: #333;
+}
+
+ul.matches {
+    padding: 0;
+
+    li {
+        display: block;
+        border: 1px solid #C9C9C9;
+        margin-top: 15px;
+        text-align: center;
+        padding: 15px;
+        font-size: 17px;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: #F5F8FB;
+            border-color: #CBDDEF;
+            cursor: pointer;
+        }
+    }
+}
+
+.tournament {
+    position: relative;
+    overflow: hidden;
+
+    h2 {
+        display: block;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .back-btn,
+    .fwd-btn {
+        position: absolute;
+        top: 10px;
+    }
+    .back-btn {
+        left: 0;
+    }
+    .fwd-btn {
+        right: 0;
+    }
+}

@@ -1,0 +1,30 @@
+.player {
+    display: inline-block;
+    font-weight: bold;
+
+    &.winner {
+        color: #4BA407;
+    }
+    &.loser {
+        color: #DC2F2F;
+    }
+
+    .name {
+        &.not-assigned {
+            font-weight: normal;
+        }
+    }
+
+    .score {
+        font-weight: normal;
+    }
+}
+
+.separator {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.name {
+    margin-bottom: 5px;
+}

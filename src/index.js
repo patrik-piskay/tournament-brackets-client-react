@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 import DevTools from 'containers/DevTools';
 import configureStore from './store/configureStore';
-import TournamentBrackets from 'containers/TournamentBrackets';
+import TournamentBrackets from 'containers/RootApp/TournamentBrackets';
 
 const store = configureStore();
 

@@ -14,6 +14,7 @@ var config = {
     resolve: {
         extensions: ['', '.js'],
         alias: {
+            assets: path.join(__dirname, 'src', 'assets'),
             containers: path.join(__dirname, 'src', 'containers'),
             components: path.join(__dirname, 'src', 'components'),
             actions: path.join(__dirname, 'src', 'actions'),
@@ -29,8 +30,8 @@ var config = {
             loader: 'babel',
             exclude: /node_modules/
         }, {
-            test: /\.css/,
-            loaders: ['style-loader', 'css-loader', 'less-loader']
+            test: /\.less/,
+            loaders: ['style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'less-loader']
         }]
     }
 };

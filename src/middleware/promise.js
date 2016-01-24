@@ -12,35 +12,27 @@ const checkStatus = (response) => {
 
 const parseJSON = (response) => response.json();
 
-export default function promiseMiddleware({ dispatch, getState }) {
+export default function promiseMiddleware({ dispatch }) {
     return next => action => {
-        const { promise, onRequest, onSuccess, onFailure, ...rest } = action;
+        const { promise, type, ...rest } = action;
         if (!promise) {
             return next(action);
         }
 
-        if (typeof onRequest === 'function') {
-            onRequest(dispatch, getState, ...rest);
-        } else {
-            dispatch({ type: onRequest, ...rest });
-        }
+        const onRequest = type + '_REQUEST_TRIGGERED';
+        const onSuccess = type + '_REQUEST_SUCCESS';
+        const onFailure = type + '_REQUEST_FAILURE';
+
+        dispatch({ type: onRequest, ...rest });
 
         promise
             .then(checkStatus)
             .then(parseJSON)
             .then((result) => {
-                if (typeof onSuccess === 'function') {
-                    onSuccess(result, dispatch, getState, ...rest);
-                } else {
-                    dispatch({ type: onSuccess, result, ...rest });
-                }
+                dispatch({ type: onSuccess, result, ...rest });
             })
             .catch((error) => {
-                if (typeof onFailure === 'function') {
-                    onFailure(error.response, dispatch, getState, ...rest);
-                } else {
-                    dispatch({ type: onFailure, error: error.response, ...rest });
-                }
+                dispatch({ type: onFailure, error: error.response, ...rest });
             });
     };
 }
