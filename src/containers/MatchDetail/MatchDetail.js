@@ -39,10 +39,14 @@ class MatchDetail extends Component {
 
         return match ? (
             <div className={styles['match-detail']}>
-                <h2>{match.player1} <span className={styles.vs}>vs</span> {match.player2}</h2>
+                <h2>
+                    <div className={styles.left}>{match.player1}</div>
+                    <span className={styles.vs}>vs</span>
+                    <div className={styles.right}>{match.player2}</div>
+                </h2>
 
                 { !match.played_at &&
-                    <div>
+                    <div className={styles.clear}>
                         <div className={styles.info}>
                             Not played yet
                         </div>
@@ -55,13 +59,30 @@ class MatchDetail extends Component {
                                 <div className={styles.error + ' alert alert-danger'}>{this.props.matchDetail.error}</div>
                             }
 
-                            <span className={styles.name}>{match.player1}</span>
-                            <input ref="player1Score" type="number" min="0" defaultValue="0" className={styles.scoreInput} />
-                            <span className={styles.separator}>:</span>
-                            <input ref="player2Score" type="number" min="0" defaultValue="0" className={styles.scoreInput} />
-                            <span className={styles.name}>{match.player2}</span>
+                            <div className={styles.desktop}>
+                                <div className={styles.left}>
+                                    <span className={styles.name}>{match.player1}</span>
+                                    <input ref="player1Score" type="number" min="0" defaultValue="0" className={styles.scoreInput} />
+                                </div>
+                                <span className={styles.separator}>:</span>
+                                <div className={styles.right}>
+                                    <input ref="player2Score" type="number" min="0" defaultValue="0" className={styles.scoreInput} />
+                                    <span className={styles.name}>{match.player2}</span>
+                                </div>
+                            </div>
 
-                            <div>
+                            <div className={styles.mobile}>
+                                <div className={styles.row}>
+                                    <span className={styles.name}>{match.player1}</span>
+                                    <input ref="player1Score" type="number" min="0" defaultValue="0" className={styles.scoreInput} />
+                                </div>
+                                <div className={styles.row}>
+                                    <span className={styles.name}>{match.player2}</span>
+                                    <input ref="player2Score" type="number" min="0" defaultValue="0" className={styles.scoreInput} />
+                                </div>
+                            </div>
+
+                            <div className={styles.clear}>
                                 <button
                                     onClick={this.props.toggleSetScoreFormVisibility}
                                     className="btn btn-danger btn-lg"
@@ -91,7 +112,7 @@ class MatchDetail extends Component {
                 }
 
                 { match.played_at &&
-                    <div>
+                    <div className={styles.clear}>
                         <div className={styles.score}>
                             {match.player1_score}
                             <span className={styles.separator}>:</span>

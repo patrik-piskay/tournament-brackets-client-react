@@ -7,7 +7,7 @@ export default function tournaments(state = initialState, action) {
     let newState;
 
     switch (action.type) {
-        case succeed(actionTypes.FETCH_ACTIVE_TOURNAMENTS):
+        case succeed(actionTypes.FETCH_TOURNAMENTS):
             newState = {};
 
             action.result.map((tournament) => {

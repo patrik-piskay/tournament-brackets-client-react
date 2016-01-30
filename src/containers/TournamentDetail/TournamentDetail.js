@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { values } from 'lodash/object';
 import { Link } from 'react-router';
 import classnames from 'classnames';
 
@@ -20,7 +19,7 @@ class TournamentDetail extends Component {
         const { id, round } = newProps.params;
 
         if (!round) {
-            this.props.history.pushState(null, `/tournament/${id}/round/${newProps.currentRound + 1}`);
+            this.props.history.replaceState(null, `/tournament/${id}/round/${newProps.currentRound + 1}`);
         }
 
         if (this.props.params.id !== id) {

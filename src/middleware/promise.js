@@ -14,25 +14,29 @@ const parseJSON = (response) => response.json();
 
 export default function promiseMiddleware({ dispatch }) {
     return next => action => {
-        const { promise, type, ...rest } = action;
+        const { promise, type, onSuccess, ...rest } = action;
         if (!promise) {
             return next(action);
         }
 
-        const onRequest = type + '_REQUEST_TRIGGERED';
-        const onSuccess = type + '_REQUEST_SUCCESS';
-        const onFailure = type + '_REQUEST_FAILURE';
+        const triggered = type + '_REQUEST_TRIGGERED';
+        const success = type + '_REQUEST_SUCCESS';
+        const failure = type + '_REQUEST_FAILURE';
 
-        dispatch({ type: onRequest, ...rest });
+        dispatch({ type: triggered, ...rest });
 
         promise
             .then(checkStatus)
             .then(parseJSON)
             .then((result) => {
-                dispatch({ type: onSuccess, result, ...rest });
+                if (onSuccess) {
+                    onSuccess(result);
+                }
+
+                dispatch({ type: success, result, ...rest });
             })
             .catch((error) => {
-                dispatch({ type: onFailure, error: error.response, ...rest });
+                dispatch({ type: failure, error: error.response, ...rest });
             });
     };
 }

@@ -1,11 +1,14 @@
 .match-detail {
     h2 {
-        text-align: center;
+        overflow: hidden;
 
         span.vs {
-            display: inline-block;
+            float: left;
+            display: block;
             font-size: 70%;
-            padding: 0 15px;
+            text-align: center;
+            width: 4%;
+            line-height: 32px;
         }
     }
 
@@ -21,7 +24,7 @@
         width: 100%;
         max-width: 700px;
         margin: 0 auto;
-    } 
+    }
 
     .scoreInput {
         height: 50px;
@@ -29,7 +32,7 @@
         width: 70px;
         font-size: 30px;
         text-align: center;
-    } 
+    }
 
     .setScore {
         margin: 30px 0;
@@ -43,8 +46,11 @@
         }
 
         .separator {
-            display: inline-block;
-            padding: 0 20px;
+            display: block;
+            float: left;
+            text-align: center;
+            width: 4%;
+            line-height: 50px;
         }
 
         button {
@@ -85,5 +91,56 @@
         .separator {
             padding: 0 15px;
         }
+    }
+}
+
+.left {
+    float: left;
+    width: 48%;
+    text-align: right;
+}
+
+.right {
+    float: right;
+    width: 48%;
+    text-align: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.mobile {
+    display: none;
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    span {
+        display: inline-block;
+        margin-right: 10px;
+        width: 50%;
+        word-break: break-word;
+    }
+
+    input {
+        width: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+    .left,
+    .right {
+        width: 42%;
+    }
+    .match-detail h2 span.vs {
+        width: 16%;
     }
 }

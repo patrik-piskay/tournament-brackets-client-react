@@ -14,7 +14,7 @@ export default function matchDetail(state = initialState, action) {
                 error: initialState.error
             };
 
-        case actionTypes.FORM_VALIDATION_ERROR:
+        case actionTypes.SET_SCORE_FORM_VALIDATION_ERROR:
             return {
                 ...state,
                 error: action.message
