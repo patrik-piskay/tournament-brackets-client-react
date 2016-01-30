@@ -5,15 +5,13 @@ import rootReducer from '../reducers';
 
 import DevTools from '../containers/DevTools';
 
-const finalCreateStore = compose(
-    applyMiddleware(
-        promiseMiddleware
-    ),
-    DevTools.instrument()
-)(createStore);
-
 export default function configureStore(initialState) {
-    const store = finalCreateStore(rootReducer, initialState);
+    const store = createStore(rootReducer, initialState, compose(
+        applyMiddleware(
+            promiseMiddleware
+        ),
+        DevTools.instrument()
+    ));
 
     /* eslint-disable no-undef */
     if (module.hot) {

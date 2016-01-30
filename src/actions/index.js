@@ -1,5 +1,7 @@
 import fetch from 'services/http';
 
+const API_ENDPOINT = 'http://localhost:3000';
+
 export function triggered(type) {
     return type + '_REQUEST_TRIGGERED';
 }
@@ -13,7 +15,7 @@ export function failed(type) {
 export const FETCH_ACTIVE_TOURNAMENTS = 'FETCH_ACTIVE_TOURNAMENTS';
 
 export function fetchActiveTournaments() {
-    const promise = fetch('http://localhost:3000/get-tournaments');
+    const promise = fetch(`${API_ENDPOINT}/tournaments`);
 
     return {
         type: FETCH_ACTIVE_TOURNAMENTS,
@@ -24,7 +26,7 @@ export function fetchActiveTournaments() {
 export const FETCH_TOURNAMENT_DETAIL = 'FETCH_TOURNAMENT_DETAIL';
 
 export function fetchTournamentDetail(tournamentId) {
-    const promise = fetch('http://localhost:3000/get-tournament/' + tournamentId);
+    const promise = fetch(`${API_ENDPOINT}/tournament/${tournamentId}`);
 
     return {
         type: FETCH_TOURNAMENT_DETAIL,
@@ -35,7 +37,7 @@ export function fetchTournamentDetail(tournamentId) {
 export const FETCH_MATCH_DETAIL = 'FETCH_MATCH_DETAIL';
 
 export function fetchMatchDetail(matchId) {
-    const promise = fetch('http://localhost:3000/get-match/' + matchId);
+    const promise = fetch(`${API_ENDPOINT}/match/${matchId}`);
 
     return {
         type: FETCH_MATCH_DETAIL,
@@ -61,7 +63,7 @@ export function setScore(matchId, player1_score, player2_score) {
             message: 'Match can not end in a draw, it has to have a winner'
         };
     } else {
-        const promise = fetch(`http://localhost:3000/set-score/${matchId}`, {
+        const promise = fetch(`${API_ENDPOINT}/match/${matchId}/set-score`, {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
