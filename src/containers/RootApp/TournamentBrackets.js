@@ -1,20 +1,16 @@
 import React from 'react';
-
 import { Router, Route, IndexRedirect } from 'react-router';
-import createHistory from 'history/lib/createHashHistory';
-
 import { slide as BurgerMenu } from 'react-burger-menu';
+
+import history from 'utils/history';
 import Menu from 'components/Menu/Menu';
 import Tournaments from 'containers/Tournaments/Tournaments';
 import TournamentDetail from 'containers/TournamentDetail/TournamentDetail';
 import MatchDetail from 'containers/MatchDetail/MatchDetail';
 import CreateTournament from 'containers/CreateTournament/CreateTournament';
+import ErrorComponent from 'containers/Error/Error';
 
 import styles from './style.less';
-
-const history = createHistory({
-    queryKey: false
-});
 
 const TournamentBrackets = (props) => {
     return (
@@ -24,6 +20,7 @@ const TournamentBrackets = (props) => {
             </BurgerMenu>
             <div className={styles.root}>
                 <div>
+                    <ErrorComponent />
                     { props.children }
                 </div>
             </div>

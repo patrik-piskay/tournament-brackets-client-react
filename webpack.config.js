@@ -20,7 +20,8 @@ var config = {
             actions: path.join(__dirname, 'src', 'actions'),
             reducers: path.join(__dirname, 'src', 'reducers'),
             middleware: path.join(__dirname, 'src', 'middleware'),
-            services: path.join(__dirname, 'src', 'services')
+            services: path.join(__dirname, 'src', 'services'),
+            utils: path.join(__dirname, 'src', 'utils')
         }
     },
 

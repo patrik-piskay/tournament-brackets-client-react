@@ -6,6 +6,7 @@ import rounds from './rounds';
 import matches from './matches';
 import matchDetail from './matchDetail';
 import newTournament from './newTournament';
+import error from './error';
 
 const rootReducer = combineReducers({
     appState,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     rounds,
     matches,
     matchDetail,
-    newTournament
+    newTournament,
+    error
 });
 
 export default rootReducer;

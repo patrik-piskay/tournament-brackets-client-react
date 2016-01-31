@@ -1,10 +1,5 @@
 import fetch from 'services/http';
-
-// TODO move to separate file
-import createHistory from 'history/lib/createHashHistory';
-const history = createHistory({
-    queryKey: false
-});
+import history from 'utils/history';
 
 const API_ENDPOINT = 'http://localhost:3000';
 
@@ -152,4 +147,12 @@ export function createNewTournament(name, players) {
             }
         };
     }
+}
+
+export const RESET_ERROR = 'RESET_ERROR';
+
+export function resetError() {
+    return {
+        type: RESET_ERROR
+    };
 }
