@@ -1,30 +1,37 @@
-a {
-    color: #333;
-}
+.tournamentDetail {
+    position: relative;
 
-ul.matches {
-    padding: 0;
+    .header {
+        overflow: hidden;
+    }
 
-    li {
-        display: block;
-        border: 1px solid #C9C9C9;
-        margin-top: 15px;
-        text-align: center;
-        padding: 15px;
-        font-size: 17px;
-        border-radius: 5px;
+    .roundBtn {
+        margin-top: 12px;
+    }
 
-        &:hover {
-            background-color: #F5F8FB;
-            border-color: #CBDDEF;
-            cursor: pointer;
+    ul.matches {
+        padding: 0;
+
+        li {
+            display: block;
+            border: 1px solid #C9C9C9;
+            margin-top: 15px;
+            text-align: center;
+            padding: 15px;
+            font-size: 17px;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: #F5F8FB;
+                border-color: #CBDDEF;
+                cursor: pointer;
+            }
+
+            a {
+                color: #333;
+            }
         }
     }
-}
-
-.tournament {
-    position: relative;
-    overflow: hidden;
 
     h2 {
         display: block;
@@ -32,15 +39,23 @@ ul.matches {
         margin-bottom: 25px;
     }
 
-    .back-btn,
-    .fwd-btn {
-        position: absolute;
-        top: 10px;
+    .noPadding {
+        padding: 0;
     }
-    .back-btn {
-        left: 0;
+}
+
+@media (max-width: 768px) {
+    .roundBtn {
+        display: inline-block;
+        width: 20%;
+        vertical-align: text-bottom;
+
+        .roundText {
+            display: none;
+        }
     }
-    .fwd-btn {
-        right: 0;
+    .tournamentName {
+        display: inline-block;
+        width: 60%;
     }
 }

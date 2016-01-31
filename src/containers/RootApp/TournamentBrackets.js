@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { Router, Route, IndexRedirect, Link } from 'react-router';
+import { Router, Route, IndexRedirect } from 'react-router';
 import createHistory from 'history/lib/createHashHistory';
 
+import { slide as BurgerMenu } from 'react-burger-menu';
+import Menu from 'components/Menu/Menu';
 import Tournaments from 'containers/Tournaments/Tournaments';
 import TournamentDetail from 'containers/TournamentDetail/TournamentDetail';
 import MatchDetail from 'containers/MatchDetail/MatchDetail';
@@ -16,16 +18,14 @@ const history = createHistory({
 
 const TournamentBrackets = (props) => {
     return (
-        <div className={styles.root}>
-            <h1>Tournament brackets</h1>
-            { false &&
-                <Link to="/new" className="btn btn-lg btn-success">
-                    <span className="glyphicon glyphicon-plus"></span>
-                    New tournament
-                </Link>
-            }
-            <div>
-                { props.children }
+        <div>
+            <BurgerMenu>
+                <Menu />
+            </BurgerMenu>
+            <div className={styles.root}>
+                <div>
+                    { props.children }
+                </div>
             </div>
         </div>
     );

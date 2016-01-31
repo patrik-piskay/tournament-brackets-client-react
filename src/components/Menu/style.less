@@ -1,0 +1,67 @@
+.item {
+    border-bottom: 1px solid #575754;
+}
+
+
+.sublinks {
+    .menuLink {
+        padding-left: 4em;
+        line-height: 50px;
+    }
+}
+
+.menuLink {
+    color: #b8b7ad;
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    line-height: 70px;
+    padding-left: 2em;
+
+    &:hover {
+        color: #c94e50;
+        text-decoration: none;
+    }
+
+
+    &:focus {
+        color: #b8b7ad;
+    }
+
+    span {
+        display: inline-block;
+        margin-right: 15px;
+    }
+
+    .triangle {
+        display: inline-block;
+        margin-left: 0px;
+        margin-top: 23px;
+        margin-right: 17px;
+        float: right;
+        transition: 250ms;
+        border-bottom: 12px solid transparent;
+        border-top: 12px solid transparent;
+        border-right: 12px solid #b8b7ad;
+    }
+
+    .triangleCollapsed {
+        transform: rotateZ(-90deg);
+    }
+
+    .triangleExpanded {
+        transform: rotateZ(0deg);
+    }
+}
+
+.hidden {
+    height: 0;
+    transition: height 0.25s ease-out;
+    overflow: hidden;
+}
+
+.shown {
+    height: 170px;
+    transition: height 0.25s ease-out;
+    overflow: hidden;
+}

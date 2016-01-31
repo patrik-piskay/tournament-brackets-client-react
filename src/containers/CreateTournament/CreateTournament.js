@@ -37,7 +37,8 @@ class CreateTournament extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.newTournament}>
+                <h2>Create new tournament</h2>
                 <form className="form-horizontal">
                     <div className={classnames({
                         'form-group form-group-lg': true,

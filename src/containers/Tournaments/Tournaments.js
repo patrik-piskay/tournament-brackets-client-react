@@ -43,11 +43,12 @@ class Tournaments extends Component {
         });
 
         return (
-            <div>
+            <div className={styles.tournaments}>
                 { /*TODO loader state*/ }
+                <h2>{`${activeFilter && ACTIVE || finishedFilter && FINISHED}`} tournaments</h2>
 
                 { filteredTournaments.length > 0 &&
-                    <ul className={styles.tournaments}>
+                    <ul>
                         { this.renderTournaments(filteredTournaments) }
                     </ul>
                 }

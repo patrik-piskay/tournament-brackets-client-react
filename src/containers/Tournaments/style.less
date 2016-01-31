@@ -1,28 +1,42 @@
-ul.tournaments {
-    padding: 0;
-
-    li {
+.tournaments {
+    h2 {
         display: block;
-        border: 1px solid #C9C9C9;
-        margin-top: 15px;
         text-align: center;
-        font-size: 17px;
-        border-radius: 5px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        text-transform: capitalize;
+    }
 
-        &:hover {
-            background-color: #F5F8FB;
-            border-color: #CBDDEF;
-            cursor: pointer;
-        }
+    ul {
+        padding: 0;
 
-        .link {
+        li {
             display: block;
-            padding: 15px;
+            border: 1px solid #C9C9C9;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 17px;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: #F5F8FB;
+                border-color: #CBDDEF;
+                cursor: pointer;
+            }
+
+            .link {
+                display: block;
+                padding: 15px;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
         }
     }
-}
 
-.noResultMsg {
-    font-size: 19px;
-    color: #A5A0A0;
+    .noResultMsg {
+        font-size: 19px;
+        color: #A5A0A0;
+    }
 }

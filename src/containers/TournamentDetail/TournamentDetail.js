@@ -45,26 +45,28 @@ class TournamentDetail extends Component {
         const roundCount = this.props.rounds.length;
 
         return (
-            <div>
-                { round > 1 &&
-                    <Link to={`tournament/${tournamentId}/round/${round - 1}`} className={classnames({
-                        [styles['back-btn']]: true
-                    }, 'btn btn-primary btn-lg')}>
-                        <span className="glyphicon glyphicon-chevron-left"></span>
-                        Previous round
-                    </Link>
-                }
+            <div className={styles.header}>
+                <div className={classnames(styles.roundBtn, 'col-md-2', styles.noPadding)}>
+                    { round > 1 &&
+                            <Link to={`tournament/${tournamentId}/round/${round - 1}`} className="btn btn-primary btn-lg btn-block">
+                                <span className="glyphicon glyphicon-chevron-left"></span>
+                                <span className={styles.roundText}>Previous round</span>
+                            </Link>
+                    }
+                </div>
 
-                <h2>{ tournaments[tournamentId].name } - { this.renderRoundText(round, roundCount) }</h2>
+                <div className={classnames(styles.tournamentName, 'col-md-8')}>
+                    <h2>{ tournaments[tournamentId].name } - { this.renderRoundText(round, roundCount) }</h2>
+                </div>
 
-                { round < roundCount &&
-                    <Link to={`tournament/${tournamentId}/round/${round + 1}`} className={classnames({
-                        [styles['fwd-btn']]: true
-                    }, 'btn btn-primary btn-lg')}>
-                        Next round
-                        <span className="glyphicon glyphicon-chevron-right"></span>
-                    </Link>
-                }
+                <div className={classnames(styles.roundBtn, 'col-md-2', styles.noPadding)}>
+                    { round < roundCount &&
+                        <Link to={`tournament/${tournamentId}/round/${round + 1}`} className="btn btn-primary btn-lg btn-block">
+                            <span className={styles.roundText}>Next round</span>
+                            <span className="glyphicon glyphicon-chevron-right"></span>
+                        </Link>
+                    }
+                </div>
             </div>
         );
     }
@@ -93,7 +95,7 @@ class TournamentDetail extends Component {
         const round = parseInt(this.props.params.round, 10);
 
         return tournaments[tournamentId] && this.props.rounds[round-1] ? (
-            <div className={styles.tournament}>
+            <div className={styles.tournamentDetail}>
                 { this.renderHeader(tournamentId, round) }
 
                 <ul className={styles.matches}>
