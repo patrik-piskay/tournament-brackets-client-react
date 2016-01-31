@@ -56,7 +56,7 @@ class TournamentDetail extends Component {
                 </div>
 
                 <div className={classnames(styles.tournamentName, 'col-md-8')}>
-                    <h2>{ tournaments[tournamentId].name } - { this.renderRoundText(round, roundCount) }</h2>
+                    <h2>{ tournaments[tournamentId].name } <div className={styles.round}>{ this.renderRoundText(round, roundCount) }</div></h2>
                 </div>
 
                 <div className={classnames(styles.roundBtn, 'col-md-2', styles.noPadding)}>

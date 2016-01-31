@@ -28,6 +28,7 @@ class Tournaments extends Component {
     }
 
     render() {
+        const ALL = 'all';
         const ACTIVE = 'active';
         const FINISHED = 'finished';
 
@@ -35,8 +36,10 @@ class Tournaments extends Component {
         const finishedFilter = this.props.routes[2].path === FINISHED;
 
         const filteredTournaments = this.props.tournaments.filter((tournament) => {
-            if (activeFilter || finishedFilter) {
-                return (activeFilter && !tournament.finished) || (finishedFilter && tournament.finished);
+            if (activeFilter) {
+                return !tournament.finished;
+            } else if (finishedFilter) {
+                return tournament.finished;
             } else {
                 return true;
             }
@@ -45,7 +48,7 @@ class Tournaments extends Component {
         return (
             <div className={styles.tournaments}>
                 { /*TODO loader state*/ }
-                <h2>{`${activeFilter && ACTIVE || finishedFilter && FINISHED}`} tournaments</h2>
+                <h2>{`${activeFilter && ACTIVE || finishedFilter && FINISHED || ALL}`} tournaments</h2>
 
                 { filteredTournaments.length > 0 &&
                     <ul>
@@ -55,7 +58,7 @@ class Tournaments extends Component {
 
                 { filteredTournaments.length === 0 &&
                     <p className={`text-center ${styles.noResultMsg}`}>
-                        There are no {`${activeFilter && ACTIVE || finishedFilter && FINISHED}`} tournaments at the moment
+                        There are no {`${activeFilter && ACTIVE || finishedFilter && FINISHED || ''}`} tournaments at the moment
                     </p>
                 }
             </div>

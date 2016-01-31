@@ -6,7 +6,7 @@
     }
 
     .roundBtn {
-        margin-top: 12px;
+        margin-top: 30px;
     }
 
     ul.matches {
@@ -37,6 +37,11 @@
         display: block;
         text-align: center;
         margin-bottom: 25px;
+
+        .round {
+            color: #E86565;
+            margin-top: 5px;
+        }
     }
 
     .noPadding {
@@ -45,17 +50,22 @@
 }
 
 @media (max-width: 768px) {
-    .roundBtn {
-        display: inline-block;
-        width: 20%;
-        vertical-align: text-bottom;
-
-        .roundText {
-            display: none;
+    .tournamentDetail {
+        h2 {
+            font-size: 25px;
         }
-    }
-    .tournamentName {
-        display: inline-block;
-        width: 60%;
+        .roundBtn {
+            display: inline-block;
+            width: 20%;
+            vertical-align: text-bottom;
+
+            .roundText {
+                display: none;
+            }
+        }
+        .tournamentName {
+            display: inline-block;
+            width: 60%;
+        }
     }
 }

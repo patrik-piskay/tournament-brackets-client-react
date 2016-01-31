@@ -32,15 +32,17 @@ export default class Menu extends Component {
                     </Link>
                 </div>
                 <div className={styles.item}>
-                    <Link to="/tournaments/finished" className={styles.menuLink}>
+                    <Link to="/tournaments/active" className={styles.menuLink}>
                         <span className="glyphicon glyphicon-th-list"></span>
                         Tournament list
 
-                        <span className={classnames({
-                            [styles.triangle]: true,
-                            [styles.triangleCollapsed]: !this.state.tournamentsCollapsed,
-                            [styles.triangleExpanded]: this.state.tournamentsCollapsed
-                        })} onClick={this.handleClick.bind(this)}></span>
+                        <div className={styles.collapsible} onClick={this.handleClick.bind(this)}>
+                            <span className={classnames({
+                                [styles.triangle]: true,
+                                [styles.triangleCollapsed]: !this.state.tournamentsCollapsed,
+                                [styles.triangleExpanded]: this.state.tournamentsCollapsed
+                            })}></span>
+                        </div>
                     </Link>
                     <div className={classnames({
                         [styles.sublinks]: true,
